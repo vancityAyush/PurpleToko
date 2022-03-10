@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:core';
 
 import 'package:json_annotation/json_annotation.dart';
+import 'package:purple_toko/constants.dart';
 
 part 'shop_data.g.dart';
 
@@ -23,7 +24,7 @@ class ShopData {
 
   dynamic getImageUrl() {
     final List img = json.decode(image);
-    return img[0]['image'];
+    return "$baseUrl/${img[0]['image']}";
   }
 
   Map<String, dynamic> toJson() => _$ShopDataToJson(this);

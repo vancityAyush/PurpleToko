@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:purple_toko/constants.dart';
 import 'package:purple_toko/main.dart';
 import 'package:purple_toko/models/response/login_response.dart';
+import 'package:purple_toko/screens/home_screen.dart';
 import 'package:purple_toko/services/networking.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
@@ -38,6 +39,8 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
     }
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomeScreen()));
     Future.delayed(Duration(seconds: 1), () => loginButtonController.reset());
   }
 
@@ -53,10 +56,13 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 Container(
                   padding: const EdgeInsets.all(20),
-                  child: Image.network(
-                    "https://firebase.google.com/downloads/brand-guidelines/PNG/logo-vertical.png",
-                    width: double.infinity,
-                    height: 200,
+                  child: Hero(
+                    tag: "LOGO",
+                    child: Image.asset(
+                      'images/logo.png',
+                      width: double.infinity,
+                      height: 200,
+                    ),
                   ),
                 ),
                 Form(

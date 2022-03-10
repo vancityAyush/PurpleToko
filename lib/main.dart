@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:purple_toko/constants.dart';
-import 'package:purple_toko/screens/home_screen.dart';
+import 'package:purple_toko/screens/login_page.dart';
 import 'package:purple_toko/services/networking.dart';
 
 final getIt = GetIt.instance;
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomeScreen(),
+      home: LoginPage(),
     );
   }
 }
