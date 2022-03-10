@@ -18,7 +18,7 @@ class ResuableMarketCard extends StatelessWidget {
           trailing: Text("See all"),
         ),
         Container(
-          height: 300,
+          height: 340,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {

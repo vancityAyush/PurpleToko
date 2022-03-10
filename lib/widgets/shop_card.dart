@@ -43,10 +43,40 @@ class ResuableShopCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: 12,
-                // fontWeight: FontWeight.w600,
               ),
             ),
           ),
+          Padding(
+            padding: kPadding,
+            child: Text(
+              currentShop.shop.city,
+              style: TextStyle(
+                fontSize: 12,
+              ),
+            ),
+          ),
+          Container(
+            margin: kPadding.copyWith(bottom: 10),
+            padding: EdgeInsets.symmetric(
+              vertical: 6,
+              horizontal: 20,
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+            ),
+            child: Center(
+              child: Text(
+                currentShop.status,
+                style: TextStyle(
+                    color: currentShop.status == 'OPEN'
+                        ? Colors.green
+                        : Colors.red),
+              ),
+            ),
+          )
         ],
       ),
     );

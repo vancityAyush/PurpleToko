@@ -16,3 +16,5 @@ const baseUrl = 'http://pt.frantic.in';
 final logo = Image.asset('images/logo.png');
 const kColor = Color(0xff800080);
 const kPadding = EdgeInsets.only(left: 10, top: 10);
+const loginRoute = '/login';
+const homeRoute = '/home';

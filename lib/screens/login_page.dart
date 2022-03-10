@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:purple_toko/constants.dart';
 import 'package:purple_toko/main.dart';
 import 'package:purple_toko/models/response/login_response.dart';
-import 'package:purple_toko/screens/home_screen.dart';
 import 'package:purple_toko/services/networking.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
@@ -31,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         _emailController.text, _passworrdController.text, UserMap[_usertype]!);
     if (loginResponse.error_code == 1) {
       loginButtonController.success();
+      Navigator.pushNamed(context, homeRoute);
     } else {
       loginButtonController.error();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -39,8 +39,6 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
     }
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HomeScreen()));
     Future.delayed(Duration(seconds: 1), () => loginButtonController.reset());
   }
 

@@ -1,7 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:purple_toko/models/data.dart';
 import 'package:purple_toko/providers/home_screen_provider.dart';
+import 'package:purple_toko/widgets/network_image.dart';
 
 import '../constants.dart';
 import '../widgets/market_card.dart';
@@ -93,30 +93,8 @@ class HomeScreen extends StatelessWidget {
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemBuilder: (context, index) =>
-                                        CachedNetworkImage(
-                                      imageUrl:
-                                          data[index].markets.getImageUrl(),
-                                      imageBuilder: (context, imageProvider) =>
-                                          Container(
-                                        width: 300,
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(20),
-                                          ),
-                                          image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                      placeholder: (context, url) => Center(
-                                        child:
-                                            const Text("Image is loading..."),
-                                      ),
-                                      errorWidget: (context, url, error) =>
-                                          const Icon(Icons.error),
+                                        myNetworkImage(
+                                      url: data[index].markets.getImageUrl(),
                                     ),
                                     itemCount: data.length,
                                   ),
@@ -139,6 +117,23 @@ class HomeScreen extends StatelessWidget {
             );
           },
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Account',
+          ),
+        ],
+        selectedItemColor: kColor,
       ),
     );
   }
